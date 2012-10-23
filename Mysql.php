@@ -1,8 +1,14 @@
 <?php
 
+/**
+ * Interface with MySQL
+ * @method static Mysql getInstance
+ */
 Class Mysql extends Singleton {
 
 	public static function connect() {
+		//Generate instance so desctructor is called
+		self::getInstance();
 		if(!mysql_connect(Config::DB_HOST, Config::DB_USER, Config::DB_PASS))
 			die('Unable to connect to the database');
 		if(!mysql_select_db(Config::DB_DATABASE))
@@ -38,12 +44,12 @@ Class Mysql extends Singleton {
 		return mysql_error();
 	}
 
-	public static function close() {
-		mysql_close();
-	}
-
 	public static function escape($value) {
 		return mysql_real_escape_string($value);
+	}
+
+	public function __destruct() {
+		mysql_close();
 	}
 
 }
