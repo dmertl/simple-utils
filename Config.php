@@ -2,9 +2,9 @@
 
 class Config {
 
-	const DB_USER = 'dev_user';
-	const DB_PASS = 'hollywood';
-	const DB_DATABASE = 'Stelara_Recovery';
+	const DB_USER = 'user';
+	const DB_PASS = 'pass';
+	const DB_DATABASE = 'db';
 	const DB_HOST = 'localhost';
 
 }
