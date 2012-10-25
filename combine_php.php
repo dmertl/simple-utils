@@ -1,8 +1,5 @@
 <?php
 
-var_dump($argc);
-var_dump($argv);
-
 if($argc > 1) {
 	$files = array_slice($argv, 1);
 } else {
@@ -14,7 +11,7 @@ if($argc > 1) {
 		}
 	}
 }
-var_dump($files);
+
 if(!empty($files)) {
 	$combined = '<?php' . "\n";
 	foreach($files as $file) {
